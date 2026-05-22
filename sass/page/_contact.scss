@@ -1,0 +1,92 @@
+@use "../common";
+@use "../variable" as v;
+@use "../mixin" as m;
+
+#contact {
+    @include m.sp {
+        padding-top: 30px;
+        min-height: auto;
+
+        h1 {
+            font-size: 56px;
+            -webkit-text-stroke: 0.8px #9C5257;
+        }
+
+        p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            padding: 10px 20px;
+        }
+    }
+
+    /* ======================
+     contact-form
+  ====================== */
+    .contact-form {
+        @include m.sp {
+            dl {
+                padding: 20px;
+            }
+        }
+
+        dt {
+            width: 24%;
+            font-size: 14px;
+            padding: 15px 0 5px 0;
+
+            @include m.sp {
+                width: 100%;
+                font-size: 13px;
+                padding: 12px 0 4px;
+            }
+        }
+
+        dd {
+            border: 1px solid #c8c8c8;
+            width: 100%;
+            padding: 10px;
+            background-color: v.$color_font;
+
+            @include m.sp {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+
+        textarea {
+            height: 180px;
+
+            @include m.sp {
+                height: 140px;
+            }
+        }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 50px;
+
+            .btn {
+                min-width: 240px;
+            }
+        }
+
+    }
+
+    input,
+    textarea {
+        width: 100%;
+    }
+
+    .contact-sub-actions {
+        margin-bottom: 30px;
+        text-align: center;
+
+        @include m.sp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+    }
+}
