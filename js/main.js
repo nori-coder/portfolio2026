@@ -1,22 +1,32 @@
 $(function () {
 
     /*=================================================
-    スクロール時の画像フェード表示
-    ===================================================*/
+        スクロール時の画像フェード表示
+        ===================================================*/
     $(window).on("scroll", function () {
+        let scroll = $(window).scrollTop();
+        let windowHeight = $(window).height();
+
+        // 既存のタイトル表示処理
         $(".section-title").each(function () {
             if ($(this).hasClass("slideTitle")) return;
-
-            let scroll = $(window).scrollTop();
             let target = $(this).offset().top;
-            let windowHeight = $(window).height();
-
             if (scroll > target - windowHeight + $(this).height() / 2) {
                 $(this).addClass("slideTitle");
             }
         });
-    });
 
+        // --- 花の出現 ---
+        $(".deco").each(function () {
+            if ($(this).hasClass("is-show")) return; // すでに表示されてたらスルー
+
+            let target = $(this).offset().top;
+            // 画面の territoire（下から10%くらいの位置）に入ったら出現
+            if (scroll > target - windowHeight + 50) {
+                $(this).addClass("is-show");
+            }
+        });
+    });
     /*=================================================
     WORKS 横スクロール（矢印）
     ===================================================*/
