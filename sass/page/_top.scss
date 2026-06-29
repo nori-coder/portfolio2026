@@ -323,7 +323,7 @@
     }
 
     .flower-3 {
-        top: 0;
+        top: 470px;
         right: 0;
         opacity: 0.6;
         z-index: 1;
@@ -933,4 +933,14 @@ footer {
     @include m.sp {
         padding-bottom: 60px;
     }
+}
+
+// 左右で少しだけ登場タイミングをずらす
+.flower-3,
+.flower-6 {
+    transition-delay: 0.3s; // 0.3秒遅れて出てくる
+}
+
+.flower-4 {
+    transition-delay: 0.4s;
 }
